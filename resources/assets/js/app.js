@@ -7,6 +7,12 @@
 
 require('./bootstrap');
 
+// Datetime picker library.
+require('./vendor/bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min');
+
+// Custom JS.
+require('./src/datepicker');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
