@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Share;
 use Illuminate\Http\Request;
-use App\Reservation;
-use App\Mail\ReservationCreated;
-use Illuminate\Support\Facades\Mail;
 
-class ReservationsController extends Controller
+class ShareController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,6 +14,7 @@ class ReservationsController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -25,7 +24,7 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        return view('reservations.create');
+        //
     }
 
     /**
@@ -36,29 +35,16 @@ class ReservationsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'my_name'   => 'honeypot',
-            'my_time'   => 'required|honeytime:5',
-            'email'     => "required|email",
-            'name'      => "required",
-            'phone'      => "required",
-            'date'      => "required",
-        ]);
-
-        $reservation = new Reservation($request->all());
-        
-        Mail::to(env('MAIL_TO'))->send(new ReservationCreated($reservation));
-
-        return redirect()->home()->with('status', 'Reservation successfully made.');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Share  $share
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Share $share)
     {
         //
     }
@@ -66,10 +52,10 @@ class ReservationsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Share  $share
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Share $share)
     {
         //
     }
@@ -78,10 +64,10 @@ class ReservationsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Share  $share
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Share $share)
     {
         //
     }
@@ -89,10 +75,10 @@ class ReservationsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Share  $share
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Share $share)
     {
         //
     }

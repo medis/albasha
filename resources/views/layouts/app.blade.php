@@ -82,7 +82,11 @@
             </div>
         </nav>
 
+        @include('partials.status')
+
         @yield('content')
+
+        @include('partials.footer')
     </div>
 
     <!-- Scripts -->
