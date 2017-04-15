@@ -9,7 +9,7 @@ class ShareController extends Controller
 {
 
     public function __construct() {
-        $this->middleware('auth')->only(['show']);
+        $this->middleware('auth')->only(['show', 'admin', 'destroy', 'update', 'edit']);
     }
 
     /**
@@ -19,7 +19,7 @@ class ShareController extends Controller
      */
     public function index()
     {
-        $shares = Share::paginate(15);
+        $shares = Share::where('confirmed', 1)->paginate(15);
         return view('share.index', compact('shares'));
     }
 
@@ -62,7 +62,7 @@ class ShareController extends Controller
      */
     public function edit(Share $share)
     {
-        //
+        return view('share.edit', compact('share'));
     }
 
     /**
@@ -74,7 +74,17 @@ class ShareController extends Controller
      */
     public function update(Request $request, Share $share)
     {
-        //
+        $this->validate($request, [
+            'name'      => "required",
+            'content'   => "required",
+        ]);
+
+        $share->name = $request->get('name');
+        $share->confirmed = $request->get('confirmed') ? true : false;
+        $share->content = $request->get('content');
+        $share->save();
+
+        return redirect('/admin/shares')->with('status', 'Share updated.');
     }
 
     /**
@@ -85,9 +95,13 @@ class ShareController extends Controller
      */
     public function destroy(Share $share)
     {
-        $share->destroy();
+        $share->delete();
         return redirect()->back()->with('status', 'Share deleted.');
     }
 
-
+    public function admin()
+    {
+        $shares = Share::orderBy('created_at')->paginate(40);
+        return view('share.admin', compact('shares'));
+    }
 }

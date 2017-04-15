@@ -26,3 +26,7 @@ Route::post('/reservations', 'ReservationsController@store')->name('reservations
 Route::get('/share', 'ShareController@index')->name('share');
 Route::post('/share', 'ShareController@store')->name('share_store');
 Route::get('/share/{share}', 'ShareController@show')->name('share_show');
+Route::put('/share/{share}', 'ShareController@update')->name('share_update');
+Route::get('/share/{share}/edit', 'ShareController@edit')->name('share_edit');
+Route::get('/share/{share}/delete', 'ShareController@destroy')->name('share_delete');
+Route::get('/admin/shares', 'ShareController@admin')->name('share_admin');

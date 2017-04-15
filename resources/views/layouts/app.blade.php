@@ -74,6 +74,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+                                    <li><a href="{{ route('share_admin') }}">Edit Shares</a></li>
                                 </ul>
                             </li>
                         @endif
