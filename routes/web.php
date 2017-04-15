@@ -17,8 +17,12 @@ Route::get('/home', 'PagesController@index');
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/menu', 'PagesController@menu')->name('menu');
-Route::get('/share', 'PagesController@share')->name('share');
 
 // Reservations.
 Route::get('/reservations', 'ReservationsController@create')->name('reservations');
 Route::post('/reservations', 'ReservationsController@store')->name('reservations_store');
+
+// Share
+Route::get('/share', 'ShareController@index')->name('share');
+Route::post('/share', 'ShareController@store')->name('share_store');
+Route::get('/share/{share}', 'ShareController@show')->name('share_show');

@@ -17,6 +17,7 @@ class CreateSharesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('content');
+            $table->boolean('confirmed')->default(false);
             $table->timestamps();
         });
     }

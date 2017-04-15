@@ -35,10 +35,4 @@ class PagesController extends Controller
         return view('pages.reservations');
     }
 
-    /**
-     * Share page.
-     */
-    public function share() {
-        return view('pages.share');
-    }
 }
