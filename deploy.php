@@ -53,7 +53,7 @@ before('deploy:symlink', 'artisan:migrate');
  * Reference: http://sentinelstand.com/article/laravel-5-optimization-commands.
  */
 task('optimise', function() {
-  cd($path . '/release/webroot');
+  cd('{{deploy_path}/release');
   run('php artisan optimize');
   run('php artisan config:cache');
   run('php artisan route:cache');
