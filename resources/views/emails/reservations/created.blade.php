@@ -11,5 +11,5 @@
   Date: {{ $reservation->date }}
 </div>
 <div>
-  Notes:<br/> {{ $reservation->name }}
+  Notes:<br/> {{ $reservation->note }}
 </div>
