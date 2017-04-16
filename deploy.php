@@ -47,15 +47,3 @@ after('deploy:failed', 'deploy:unlock');
 // Migrate database before symlink new release.
 
 before('deploy:symlink', 'artisan:migrate');
-
-/**
- * Run Laravel5 optimisation commands.
- * Reference: http://sentinelstand.com/article/laravel-5-optimization-commands.
- */
-task('optimise', function() {
-  cd('{{deploy_path}/release');
-  run('php artisan optimize');
-  run('php artisan config:cache');
-  run('php artisan route:cache');
-});
-after('cleanup', 'optimise');
