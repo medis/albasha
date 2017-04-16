@@ -36,7 +36,7 @@ class ReservationCreated extends Mailable
      */
     public function build()
     {
-        return $this->from(env('MAIL_FROM'))
+        return $this->from(config('app.MAIL_FROM'))
                     ->view('emails.reservations.created');
     }
 }

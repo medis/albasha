@@ -46,8 +46,7 @@ class ReservationsController extends Controller
         ]);
 
         $reservation = new Reservation($request->all());
-        
-        Mail::to(env('MAIL_TO'))->send(new ReservationCreated($reservation));
+        Mail::to(config('app.MAIL_TO'))->send(new ReservationCreated($reservation));
 
         return redirect()->home()->with('status', 'Reservation successfully made.');
     }
