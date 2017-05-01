@@ -67,8 +67,14 @@ class GalleryController extends Controller
 
     private function createFile($file) {
         $random_name = str_random(8);
-        $public_path = 'gallery_images/'. $random_name .'.jpg';
-        $public_thumbnail_path = 'gallery_images/'. $random_name .'-thumbs.jpg';
+        $public_path = 'storage/gallery/'. $random_name .'.jpg';
+        $public_thumbnail_path = 'storage/gallery/'. $random_name .'-thumbs.jpg';
+
+        if (!file_exists(public_path('storage/gallery'))) {
+            mkdir(public_path('storage'));
+            mkdir(public_path('storage/gallery'));
+        }
+
         $image = Image::make($file->getRealPath());
         $image->save(public_path($public_path));
         $image->fit(300, 200)->save(public_path($public_thumbnail_path));
