@@ -30,3 +30,11 @@ Route::put('/share/{share}', 'ShareController@update')->name('share_update');
 Route::get('/share/{share}/edit', 'ShareController@edit')->name('share_edit');
 Route::get('/share/{share}/delete', 'ShareController@destroy')->name('share_delete');
 Route::get('/admin/shares', 'ShareController@admin')->name('share_admin');
+
+// Gallery
+Route::get('/gallery', 'GalleryController@index')->name('gallery_index');
+Route::get('/gallery/create', 'GalleryController@create')->name('gallery_create');
+Route::post('/gallery', 'GalleryController@store')->name('gallery_store');
+Route::get('/gallery/{gallery}/edit', 'GalleryController@edit')->name('gallery_edit');
+Route::put('/gallery/{gallery}', 'GalleryController@update')->name('gallery_update');
+Route::get('/gallery/{gallery}/delete', 'GalleryController@destroy')->name('gallery_delete');

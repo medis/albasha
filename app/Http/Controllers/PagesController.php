@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Gallery;
 
 class PagesController extends Controller
 {
@@ -11,7 +12,8 @@ class PagesController extends Controller
      * Homepage callback.
      */
     public function index() {
-        return view('pages.home');
+        $slideshow = Gallery::where('slideshow', 1)->get();
+        return view('pages.home', compact('slideshow'));
     }
 
     /**
