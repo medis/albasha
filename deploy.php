@@ -18,9 +18,10 @@ add('shared_dirs', [
     'webroot/storage/framework/sessions',
     'webroot/storage/framework/views',
     'webroot/storage/logs',
+    'webroot/public/storage'
 ]);
 
-add('writable_dirs', ['webroot/storage', 'webroot/vendor']);
+add('writable_dirs', ['webroot/storage', 'webroot/vendor', 'webroot/public/storage']);
 
 // Servers
 
