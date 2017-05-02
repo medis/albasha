@@ -1,0 +1,48 @@
+.navbar-brand {
+  height: auto;
+  img {
+    max-width: 400px;
+    height: auto;
+  }
+}
+.navbar-default .navbar-nav {
+  > li > a {
+    line-height: 67px;
+    color: #FFF;
+    text-transform: uppercase;
+    white-space: nowrap;
+    &:hover, &:focus {
+      color: #e62f0e;
+    }
+  }
+}
+.navbar-default {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  .container {
+    z-index: 6;
+    position: relative;
+  }
+}
+.bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: .5;
+  z-index: 5;
+}
+.nav {
+  width: 100%;
+  display: table;
+  padding-left: 5%;
+  li {
+    float: none;
+    display: table-cell;
+    margin: auto;
+    text-align: center;
+  }
+}
