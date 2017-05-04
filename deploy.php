@@ -11,15 +11,8 @@ set('ssh_multiplexing', true);
 
 set('repository', 'git@github.com:medis/albasha.git');
 
-add('shared_files', ['.env']);
-add('shared_dirs', [
-    'storage/app',
-    'storage/framework/cache',
-    'storage/framework/sessions',
-    'storage/framework/views',
-    'storage/logs',
-    'public/storage'
-]);
+//add('shared_files', ['.env']);
+add('shared_dirs', ['public/storage']);
 
 add('writable_dirs', ['storage', 'vendor', 'public/storage']);
 
