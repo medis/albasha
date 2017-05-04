@@ -2,9 +2,34 @@
   h1 {
     font-family: "Jellyka Delicious Cake";
     color: #b38f13;
-    font-size: 50px;
+    font-size: 55px;
   }
   h2 {
     font-family: "Nexa Light";
+    font-size: 23px;
   }
+  .homepage-fish {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    .border {
+      position: absolute;
+      border-bottom: 1px solid #b38f13;
+      top: 50%;
+    }
+    img {
+      width: 128px;
+      height: auto;
+    }
+    .image-wrapper {
+      display: inline-block;
+      background: #FFF;
+      position: relative;
+      padding: 0 35px;
+    }
+  }
+}
+.about-wrapper {
+  padding: 100px 0;
+  background: url(../images/home_about_bg.png) no-repeat 110% 50px;
 }
