@@ -13,7 +13,8 @@ class PagesController extends Controller
      */
     public function index() {
         $slideshow = Gallery::where('slideshow', 1)->get();
-        return view('pages.home', compact('slideshow'));
+        $gallery = Gallery::paginate(8);
+        return view('pages.home', compact('slideshow', 'gallery'));
     }
 
     /**

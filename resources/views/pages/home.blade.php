@@ -29,4 +29,7 @@
         </div>
     </div>
 </div>
+
+@include('partials.gallery')
+
 @endsection

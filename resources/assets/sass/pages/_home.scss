@@ -33,3 +33,19 @@
   padding: 100px 0;
   background: url(../images/home_about_bg.png) no-repeat 110% 50px;
 }
+#gallery {
+  background: url("../images/gallery_bg.jpg") no-repeat 0 0;
+  background-size: cover;
+  img {
+    width: 100%;
+    height: auto;
+  }
+  .image {
+    background-size: cover;
+    &:before {
+      content: "";
+      display: block;
+      padding-top: 100%;
+    }
+  }
+}
