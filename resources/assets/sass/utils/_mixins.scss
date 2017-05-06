@@ -42,3 +42,9 @@
 		src: $src;
 	}
 }
+
+@mixin nice_font() {
+	font-family: "Jellyka Delicious Cake";
+	color: #b38f13;
+	font-size: 55px;
+}

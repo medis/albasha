@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        
+
         @include('partials.header')
 
         @include('partials.slideshow')
@@ -35,6 +35,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

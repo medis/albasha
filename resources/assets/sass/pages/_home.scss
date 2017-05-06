@@ -1,8 +1,6 @@
 .home-page {
   h1 {
-    font-family: "Jellyka Delicious Cake";
-    color: #b38f13;
-    font-size: 55px;
+    @include nice_font;
   }
   h2 {
     font-family: "Nexa Light";
@@ -34,11 +32,26 @@
   background: url(../images/home_about_bg.png) no-repeat 110% 50px;
 }
 #gallery {
-  background: url("../images/gallery_bg.jpg") no-repeat 0 0;
+  background: url(../images/gallery_bg.jpg) no-repeat 0 0;
   background-size: cover;
+  > .container {
+    padding: 40px 0;
+  }
+  h2 {
+    text-align: center;
+    @include nice_font;
+    padding-bottom: 25px;
+  }
   img {
     width: 100%;
     height: auto;
+  }
+  .image-wrapper img {
+    width: 128px;
+    height: auto;
+  }
+  .images-wrapper {
+    clear: both;
   }
   .image {
     background-size: cover;
@@ -46,6 +59,16 @@
       content: "";
       display: block;
       padding-top: 100%;
+    }
+  }
+  .gallery-image {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 25px;
+    .border {
+      position: absolute;
+      border-bottom: 1px solid #b38f13;
+      top: 50%;
     }
   }
 }
