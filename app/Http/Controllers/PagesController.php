@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use App\Food;
 
 class PagesController extends Controller
 {
@@ -20,7 +21,8 @@ class PagesController extends Controller
      * Menu page.
      */
     public function menu() {
-        return view('pages.menu');
+        $menu = Food::getFood();
+        return view('pages.menu', compact('menu'));
     }
 
     /**

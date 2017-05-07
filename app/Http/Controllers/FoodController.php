@@ -10,13 +10,6 @@ class FoodController extends Controller
 {
     use FileTrait;
 
-    protected $categories = [
-        'soups' => 'SOUPS',
-        'cold_starters' => 'COLD STARTERS',
-        'hot_starters' => 'HOT STARTERS',
-        'main_courses' => 'MAIN COURSES'
-    ];
-
     /**
      * Display a listing of the resource.
      *
@@ -24,11 +17,7 @@ class FoodController extends Controller
      */
     public function index()
     {
-        $data = [
-            'soups' => Food::where('category', 'soups')->get(),
-            'cold starters' => Food::where('category', 'cold_starters')->get(),
-        ];
-
+        $data = Food::getFood();
         return view('food.index', compact('data'));
     }
 
@@ -39,7 +28,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        $categories = $this->categories;
+        $categories = Food::getCategories();
         return view('food.create', compact('categories'));
     }
 
@@ -89,7 +78,7 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        $categories = $this->categories;
+        $categories = Food::getCategories();
         return view('food.edit', compact('food', 'categories'));
     }
 

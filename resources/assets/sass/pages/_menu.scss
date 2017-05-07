@@ -2,4 +2,35 @@
   h1 {
     @include nice_font();
   }
+  h2 {
+    text-align: center;
+    font-weight: normal;
+  }
+
+  .menu-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    text-align: center;
+
+    .image-wrapper {
+      display: inline-block;
+      background: #FFF;
+      position: relative;
+      padding: 0 35px;
+    }
+    img {
+      width: 128px;
+      height: auto;
+    }
+    .border {
+      position: absolute;
+      border-bottom: 1px solid #b38f13;
+      top: 50%;
+    }
+  }
+
+  .category-wrapper {
+    clear: both;
+  }
 }
