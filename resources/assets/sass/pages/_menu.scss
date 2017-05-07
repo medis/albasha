@@ -1,0 +1,5 @@
+.menu-page {
+  h1 {
+    @include nice_font();
+  }
+}

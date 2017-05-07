@@ -22,12 +22,33 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
-                    <li><a href="{{ route('about') }}">About Us</a></li>
+                    <li><a href="{{ route('menu') }}">Menu</a></li>
                     <li><a href="{{ route('reservations') }}">Reservations & Contact</a></li>
                     <li><a href="{{ route('share') }}">Share With Us</a></li>
-                </ul>
+                    @if (Auth::check())
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
 
-                @include('partials.auth_menu')
+                            <ul class="dropdown-menu" role="menu">
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                                <li><a href="{{ route('share_admin') }}">Edit Shares</a></li>
+                                <li><a href="{{ route('gallery_index') }}">Edit Gallery</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
             </div>
         </div>
     </div>

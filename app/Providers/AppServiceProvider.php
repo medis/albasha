@@ -25,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Everytime a partials.slideshow view is loaded, attach slideshow data.
+        view()->composer('partials.slideshow', function($view) {
+            $view->with('slideshow', \App\Gallery::where('slideshow', 1)->get());
+        });
     }
 }

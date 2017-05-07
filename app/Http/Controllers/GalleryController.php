@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
 use App\Gallery;
+use App\Http\Controllers\traits\FileTrait;
 
 class GalleryController extends Controller
 {
+    use FileTrait;
+
     public function __construct() {
         $this->middleware('auth');
     }
@@ -27,7 +29,7 @@ class GalleryController extends Controller
         ]);
 
 
-        list($public_path, $public_thumbnail_path) = $this->createFile($request->file);
+        list($public_path, $public_thumbnail_path) = $this->createFile($request->file, 'gallery', [300, 200]);
         Gallery::create([
             'image' => $public_path,
             'thumbnail' => $public_thumbnail_path,
@@ -65,26 +67,26 @@ class GalleryController extends Controller
     }
 
 
-    private function createFile($file) {
-        $random_name = str_random(8);
-        $public_path = 'storage/gallery/'. $random_name .'.jpg';
-        $public_thumbnail_path = 'storage/gallery/'. $random_name .'-thumbs.jpg';
+    // private function createFile($file) {
+    //     $random_name = str_random(8);
+    //     $public_path = 'storage/gallery/'. $random_name .'.jpg';
+    //     $public_thumbnail_path = 'storage/gallery/'. $random_name .'-thumbs.jpg';
 
-        if (!file_exists(public_path('storage/gallery'))) {
-            mkdir(public_path('storage'));
-            mkdir(public_path('storage/gallery'));
-        }
+    //     if (!file_exists(public_path('storage/gallery'))) {
+    //         mkdir(public_path('storage'));
+    //         mkdir(public_path('storage/gallery'));
+    //     }
 
-        $image = Image::make($file->getRealPath());
-        $image->save(public_path($public_path));
-        $image->fit(300, 200)->save(public_path($public_thumbnail_path));
-        return [$public_path, $public_thumbnail_path];
-    }
+    //     $image = Image::make($file->getRealPath());
+    //     $image->save(public_path($public_path));
+    //     $image->fit(300, 200)->save(public_path($public_thumbnail_path));
+    //     return [$public_path, $public_thumbnail_path];
+    // }
 
-    private function deleteFile($link) {
-        $link = public_path($link);
-        if (file_exists($link)) {
-            unlink($link);
-        }
-    }
+    // private function deleteFile($link) {
+    //     $link = public_path($link);
+    //     if (file_exists($link)) {
+    //         unlink($link);
+    //     }
+    // }
 }

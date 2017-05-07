@@ -12,6 +12,8 @@ footer {
     min-height: 280px;
   }
   .our-info {
+    width: 28%;
+    border-right: 1px solid black;
     h2 {
       background: url(../images/info.png) no-repeat 0 0;
     }
@@ -26,17 +28,15 @@ footer {
       background: url(../images/email.png) no-repeat 0 50%;
       line-height: 32px;
     }
-    .border-wrapper {
-      border-right: 1px solid black;
-      margin-right: 25px;
-      > div {
-        padding-left: 72px;
-        margin: 15px 0 15px 8px;
-      }
+    > div {
+      padding-left: 72px;
+      margin: 15px 0 15px 8px;
     }
   }
 
   .opening-times {
+    width: 36%;
+    border-right: 1px solid black;
     h2 {
       background: url(../images/time.png) no-repeat 0 0;
     }
@@ -53,6 +53,7 @@ footer {
   }
 
   .social-media {
+    width: 36%;
     h2 {
       background: url(../images/social.png) no-repeat 0 0;
     }

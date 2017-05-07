@@ -15,7 +15,6 @@ Auth::routes();
 
 Route::get('/home', 'PagesController@index');
 Route::get('/', 'PagesController@index')->name('home');
-Route::get('/about', 'PagesController@about')->name('about');
 Route::get('/menu', 'PagesController@menu')->name('menu');
 
 // Reservations.
@@ -38,3 +37,6 @@ Route::post('/gallery', 'GalleryController@store')->name('gallery_store');
 Route::get('/gallery/{gallery}/edit', 'GalleryController@edit')->name('gallery_edit');
 Route::put('/gallery/{gallery}', 'GalleryController@update')->name('gallery_update');
 Route::get('/gallery/{gallery}/delete', 'GalleryController@destroy')->name('gallery_delete');
+
+// Food
+Route::resource('food', 'FoodController');

@@ -12,16 +12,8 @@ class PagesController extends Controller
      * Homepage callback.
      */
     public function index() {
-        $slideshow = Gallery::where('slideshow', 1)->get();
         $gallery = Gallery::paginate(8);
-        return view('pages.home', compact('slideshow', 'gallery'));
-    }
-
-    /**
-     * About page.
-     */
-    public function about() {
-        return view('pages.about');
+        return view('pages.home', compact('gallery'));
     }
 
     /**

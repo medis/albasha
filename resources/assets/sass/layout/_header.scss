@@ -45,6 +45,10 @@
     margin: auto;
     text-align: center;
   }
+  .dropdown-menu li {
+    display: block;
+    text-align: left;
+  }
 }
 @media all and (min-width: 768px) {
   .navbar-collapse.col-md-7 {
