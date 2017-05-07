@@ -45,6 +45,7 @@
                                 </li>
                                 <li><a href="{{ route('share_admin') }}">Edit Shares</a></li>
                                 <li><a href="{{ route('gallery_index') }}">Edit Gallery</a></li>
+                                <li><a href="{{ route('food.index') }}">Edit Food</a></li>
                             </ul>
                         </li>
                     @endif

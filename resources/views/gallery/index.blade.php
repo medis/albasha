@@ -4,8 +4,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <div class="btn-group" role="group" aria-label="...">
-          <a href="{{ route('gallery_create') }}" class="btn btn-default">Add image</a>
+        <div class="form-group">
+          <div class="btn-group" role="group" aria-label="...">
+            <a href="{{ route('gallery_create') }}" class="btn btn-default">Add image</a>
+          </div>
         </div>
 
         <div class="panel panel-default">

@@ -24,7 +24,12 @@ class FoodController extends Controller
      */
     public function index()
     {
-        return view('food.index');
+        $data = [
+            'soups' => Food::where('category', 'soups')->get(),
+            'cold starters' => Food::where('category', 'cold_starters')->get(),
+        ];
+
+        return view('food.index', compact('data'));
     }
 
     /**
