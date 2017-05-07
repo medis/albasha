@@ -89,7 +89,8 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        //
+        $categories = $this->categories;
+        return view('food.edit', compact('food', 'categories'));
     }
 
     /**
@@ -101,7 +102,28 @@ class FoodController extends Controller
      */
     public function update(Request $request, Food $food)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'price' => 'required|numeric',
+            'file'  => 'image|mimes:jpeg,jpg,png|max:10000'
+        ]);
+
+        if (!empty($request->file)) {
+            $this->deleteFile($food->image);
+            $this->deleteFile($food->thumbnail);
+
+            list($public_path, $public_thumbnail_path) = $this->createFile($request->file, 'food', [90, 90]);
+            $food->image = $public_path;
+            $food->thumbnail = $public_thumbnail_path;
+        }
+
+        $food->title = $request->title;
+        $food->price = $request->price;
+        $food->description = $request->description;
+        $food->category = $request->category;
+        $food->save();
+
+        return redirect()->route('food.index')->with('status', "{$food->title} updated.");
     }
 
     /**
@@ -112,6 +134,9 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
-        //
+        $this->deleteFile($food->image);
+        $this->deleteFile($food->thumbnail);
+        $food->delete();
+        return redirect()->route('food.index')->with('status', 'Food deleted.');
     }
 }
