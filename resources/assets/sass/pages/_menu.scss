@@ -1,16 +1,20 @@
 .menu-page {
+  padding-bottom: 100px;
   h1 {
     @include nice_font();
+    padding-bottom: 20px;
   }
   h2 {
     text-align: center;
     font-weight: normal;
+    font-family: "Nexa Light";
+    margin-bottom: 0;
   }
 
   .menu-image-wrapper {
     position: relative;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 40px 0;
     text-align: center;
 
     .image-wrapper {
@@ -27,10 +31,46 @@
       position: absolute;
       border-bottom: 1px solid #b38f13;
       top: 50%;
+      width: 100%;
     }
+
+    @media all and (min-width: 768px) {
+      .border { width: 50%; }
+    }
+
   }
 
   .category-wrapper {
     clear: both;
+    padding-top: 70px;
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+
+  .food-wrapper {
+    .image {
+      float: left;
+      padding-right: 15px;
+      img { border-radius: 50%; }
+    }
+    .title,
+    .price {
+      font-family: "Nexa Light";
+      font-size: 19px;
+      text-transform: uppercase;
+      color: #b38f13;
+      float: left;
+    }
+    .price {
+      float: right;
+    }
+    .description {
+      clear: right;
+    }
+  }
+  .food {
+    overflow: hidden;
+    margin-bottom: 10px;
   }
 }

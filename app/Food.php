@@ -8,6 +8,17 @@ class Food extends Model
 {
     protected $fillable = ['title', 'price', 'description', 'category', 'image', 'thumbnail'];
 
+    /**
+     * Get formatted price attribute.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    public function getPriceAttribute($value)
+    {
+        return '£' . number_format($value, 2);
+    }
+
     public static function getCategories() {
         return [
             'soups' => 'SOUPS',

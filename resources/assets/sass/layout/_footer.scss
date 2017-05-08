@@ -12,8 +12,6 @@ footer {
     min-height: 280px;
   }
   .our-info {
-    width: 28%;
-    border-right: 1px solid black;
     h2 {
       background: url(../images/info.png) no-repeat 0 0;
     }
@@ -35,8 +33,6 @@ footer {
   }
 
   .opening-times {
-    width: 36%;
-    border-right: 1px solid black;
     h2 {
       background: url(../images/time.png) no-repeat 0 0;
     }
@@ -53,7 +49,6 @@ footer {
   }
 
   .social-media {
-    width: 36%;
     h2 {
       background: url(../images/social.png) no-repeat 0 0;
     }
@@ -86,5 +81,75 @@ footer {
   }
   .content-wrapper {
     padding-left: 70px;
+  }
+
+  .social-media {
+    text-align: center;
+    width: auto;
+    margin: 0 auto;
+    display: inline-block;
+    h2 {
+      float: left;
+    }
+    ul {
+      display: block;
+      clear: left;
+      float: left;
+    }
+    .cards {
+      display: block;
+      clear: left;
+      float: left;
+    }
+  }
+
+  @media all and (min-width: 768px) {
+    .container { text-align: center; }
+    .our-info {
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+      border: none;
+      text-align: left;
+    }
+    .opening-times {
+      width: 49%;
+      display: inline-block;
+      vertical-align: top;
+      border: none;
+      text-align: left;
+    }
+    .social-media {
+      text-align: center;
+      width: auto;
+      margin: 0 auto;
+      display: inline-block;
+      h2 {
+        float: left;
+      }
+      ul {
+        display: block;
+        clear: left;
+        float: left;
+      }
+      .cards {
+        display: block;
+        clear: left;
+        float: left;
+      }
+    }
+  }
+
+  @media all and (min-width: 1200px) {
+    .footer .container { text-align: left; }
+    .our-info {
+      width: 28%;
+      border-right: 1px solid black;
+    }
+    .opening-times {
+      width: 36%;
+      border-right: 1px solid black;
+    }
+    .social-media { width: 36%; }
   }
 }
