@@ -1,13 +1,17 @@
 .navbar-brand {
   height: auto;
   img {
+    width: 100%;
     max-width: 400px;
     height: auto;
   }
 }
+@media all and (min-width: 768px) and (max-width: 992px) {
+  .navbar-brand { padding-top: 32px; }
+}
+
 .navbar-default .navbar-nav {
   > li > a {
-    line-height: 67px;
     color: #FFF;
     text-transform: uppercase;
     white-space: nowrap;
@@ -35,19 +39,24 @@
   opacity: .5;
   z-index: 5;
 }
-.nav {
-  width: 95%;
-  display: table;
-  padding-left: 5%;
-  li {
-    float: none;
-    display: table-cell;
-    margin: auto;
-    text-align: center;
+@media all and (min-width: 768px) {
+  .navbar-default .navbar-nav > li > a {
+    line-height: 67px;
   }
-  .dropdown-menu li {
-    display: block;
-    text-align: left;
+  .nav {
+    width: 95%;
+    display: table;
+    padding-left: 5%;
+    li {
+      float: none;
+      display: table-cell;
+      margin: auto;
+      text-align: center;
+    }
+    .dropdown-menu li {
+      display: block;
+      text-align: left;
+    }
   }
 }
 @media all and (min-width: 768px) {

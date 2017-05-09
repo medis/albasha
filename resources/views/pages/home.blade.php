@@ -8,7 +8,7 @@
                 <h1>Welcome to our Retaurant</h1>
                 <h2>WE ARE A BEST QUALITY & TRADITIONAL<br/>IRAQI FOOD, SPECIALIZED IN FISH</h2>
                 <div class="homepage-fish">
-                    <div class="border border-left col-md-8 col-md-push-2"></div>
+                    <div class="border border-left col-xs-10 col-xs-push-1 col-sm-8 col-sm-push-2"></div>
                     <div class="image-wrapper">
                         {{ Html::image('images/homepage_fish.png') }}
                     </div>

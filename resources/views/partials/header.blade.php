@@ -2,7 +2,7 @@
     <div class="bg"></div>
     <div class="container">
         <div class="row">
-            <div class="navbar-header col-md-5">
+            <div class="navbar-header col-sm-4 col-md-5">
 
                 <!-- Collapsed Hamburger -->
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -13,12 +13,12 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand col-xs-9 col-sm-12 col-md-12" href="{{ url('/') }}">
                     {{ Html::image('images/logo.png') }}
                 </a>
             </div>
 
-            <div class="collapse navbar-collapse col-md-7" id="app-navbar-collapse">
+            <div class="collapse navbar-collapse col-sm-5 col-md-7" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('home') }}">Home</a></li>
