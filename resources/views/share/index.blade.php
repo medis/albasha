@@ -1,48 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container page-share">
+
+    <h1>Share a message with us</h1>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
 
-                <div class="panel-body">
-                    
-                    @if (count($shares))
-                    
-                        @foreach ($shares as $share)
-
-                            <div class="col-sm-12 col-md-6 col-lg-4">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">{{ $share->name }}</div>
-                                    <div class="panel-body">{{ $share->content }}</div>
-                                </div>
-                            </div>
-                        
-                        @endforeach
-                        
-                        <div class="col-sm-7 col-md-offset-5">
-                            {{ $shares->render() }}
-                        </div>
-
-                    @else
-
-                        <p>No feedbacks yet.</p>
-                    
-                    @endif
-
-                </div>
-                
-            </div>
+            @if (count($shares))
             
-            <div class="panel panel-default">
-                <div class="panel-body">
+                <div class="row">
 
-                    @include('share.create')
+                @foreach ($shares as $share)
+
+                    <div class="col-sm-12 col-md-6 col-lg-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">{{ $share->name }}</div>
+                            <div class="panel-body">{{ $share->content }}</div>
+                        </div>
+                    </div>
+                
+                @endforeach
 
                 </div>
-                
-            </div>
+
+                <div class="col-sm-7 col-md-offset-5">
+                    {{ $shares->render() }}
+                </div>
+
+            @else
+
+                <p>No feedbacks yet.</p>
+            
+            @endif
+
+
+            @include('share.create')
+
         </div>
     </div>
 
