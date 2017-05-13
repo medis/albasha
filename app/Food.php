@@ -14,9 +14,9 @@ class Food extends Model
      * @param  string  $value
      * @return string
      */
-    public function getPriceAttribute($value)
+    public function getPrice()
     {
-        return '£' . number_format($value, 2);
+        return '£' . number_format($this->price, 2);
     }
 
     public static function getCategories() {

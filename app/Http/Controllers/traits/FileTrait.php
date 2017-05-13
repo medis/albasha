@@ -10,6 +10,10 @@ trait FileTrait {
    * Create file.
    */
   public function createFile($file, $path, array $thumb_size = []) {
+    if (empty($file)) {
+      return ['', ''];
+    }
+    
     $random_name = str_random(8);
     $public_path = "storage/$path/$random_name.jpg";
     $public_thumbnail_path = "storage/$path/$random_name-thumbs.jpg";
@@ -18,7 +22,7 @@ trait FileTrait {
         if (!file_exists(public_path("storage"))) {
             mkdir(public_path('storage'));
         }
-        
+
         mkdir(public_path("storage/$path"));
     }
 

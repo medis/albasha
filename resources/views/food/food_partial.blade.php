@@ -1,7 +1,13 @@
 <tr>
-  <td>{{ Html::image($food->thumbnail) }}</td>
+  <td>
+    @if (!empty($food->thumbnail))
+      {{ Html::image($food->thumbnail) }}
+    @else
+      <div class="empty-image"></div>
+    @endif
+  </td>
   <td>{{ $food->title }}</td>
-  <td>{{ $food->price }}</td>
+  <td>{{ $food->getPrice() }}</td>
   <td>{{ $food->created_at->toDayDateTimeString() }}
   <td>
     <ul>

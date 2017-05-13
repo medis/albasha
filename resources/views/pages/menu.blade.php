@@ -28,9 +28,15 @@
 
                                     <div class="col-md-6 food">
 
-                                        <div class="image">{{ Html::image($food->thumbnail) }}</div>
+                                        <div class="image">
+                                            @if (!empty($food->thumbnail))
+                                                {{ Html::image($food->thumbnail) }}
+                                            @else
+                                                <div class="empty-image"></div>
+                                            @endif
+                                        </div>
                                         <div class="title">{{ $food->title }}</div>
-                                        <div class="price">{{ $food->price }}</div>
+                                        <div class="price">{{ $food->getPrice() }}</div>
                                         <div class="description">{{ $food->description }}</div>
 
                                     </div>
