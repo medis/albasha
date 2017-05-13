@@ -20,31 +20,16 @@
 
                       <p class="text-uppercase">{{ $category }}</p>
 
-                      <table class="table table-striped">
-                        <thead>
-                          <tr>
-                            <th>Thumbnail</th>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Created</th>
-                            <th>Actions</th>
-                          </tr>
-                        </thead>
-                        <tbody>
 
-                        @foreach ($foods as $food)
-                          @include('food.food_partial')
-                        @endforeach
-
-                        </tbody>
-                      </table>
+                        <food-list category="{{ $category }}"></food-list>
+                      
 
                     @endforeach
 
                 @else
 
                     <p>No food yet.</p>
-                
+
                 @endif
 
             </div>

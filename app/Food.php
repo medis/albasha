@@ -30,17 +30,21 @@ class Food extends Model
 
     public static function getFood($category = null) {
         if (!empty($category)) {
-            return [$category => Food::where('category', $category)->get()];
+            return Food::where('category', $category)->orderBy('weight')->get();
         }
 
         $data = [];
         foreach (self::getCategories() as $id => $category) {
-            $results = Food::where('category', $id)->get();
+            $results = Food::where('category', $id)->orderBy('weight')->get();
             if (!$results->isEmpty()) {
                 $data[$category] = $results;
             }
         }
 
         return $data;
+    }
+
+    public static function getFoodGrouped() {
+        $data = [];
     }
 }
