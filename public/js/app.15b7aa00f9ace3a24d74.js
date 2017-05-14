@@ -1621,6 +1621,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     // data() {
@@ -1677,7 +1678,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
+//https://github.com/SortableJS/Vue.Draggable
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1696,11 +1699,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
   methods: {
 
-    updateMenu: function updateMenu(menu) {
-      console.log(menu);
-      this.menu = menu[this.category];
-    },
-
     formatPrice: function formatPrice(price) {
       return parseFloat(Math.round(price * 100) / 100).toFixed(2);
     },
@@ -1709,10 +1707,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       return '/food/' + food.id + '/edit';
     },
 
-    formatDelete: function formatDelete(food) {
-      return '/food/' + food.id;
-    }
+    log: function log(e) {
+      Event.$emit('FoodOrderChanged', { category: this.category, menu: this.menu });
+    },
 
+    deleteFood: function deleteFood(key, id) {
+      var context = this;
+      var link = '/food/' + id;
+      var message = "Are you sure you want to delete this?";
+      bootbox.confirm(message, function (result) {
+        if (result) {
+          axios.delete(link).then(function (response) {
+            context.menu.splice(key, 1);
+          });
+        }
+      });
+    }
+  },
+
+  created: function created() {
+    var _this = this;
+
+    Event.$on('menuFetched', function (menu) {
+      return _this.menu = menu[_this.category];
+    });
   }
 });
 
@@ -50117,6 +50135,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "element": 'tbody'
     },
+    on: {
+      "change": _vm.log
+    },
     model: {
       value: (_vm.menu),
       callback: function($$v) {
@@ -50124,7 +50145,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       },
       expression: "menu"
     }
-  }, _vm._l((_vm.menu), function(food) {
+  }, _vm._l((_vm.menu), function(food, key) {
     return _c('food', {
       key: food.id
     }, [_c('template', {
@@ -50149,13 +50170,19 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_vm._v("Edit")])]), _vm._v(" "), _c('li', [_c('a', {
       attrs: {
-        "href": _vm.formatDelete(food),
-        "data-confirm": "Are you sure you want to delete this?"
+        "href": "#"
+      },
+      on: {
+        "click": function($event) {
+          $event.stopPropagation();
+          $event.preventDefault();
+          _vm.deleteFood(key, food.id)
+        }
       }
     }, [_vm._v("Delete")])])])])], 2)
   }))], 1)
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('thead', [_c('tr', [_c('th', [_vm._v("Thumbnail")]), _vm._v(" "), _c('th', [_vm._v("Title")]), _vm._v(" "), _c('th', [_vm._v("Price")]), _vm._v(" "), _c('th', [_vm._v("Created")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
+  return _c('thead', [_c('tr', [_c('th'), _vm._v(" "), _c('th', [_vm._v("Thumbnail")]), _vm._v(" "), _c('th', [_vm._v("Title")]), _vm._v(" "), _c('th', [_vm._v("Price")]), _vm._v(" "), _c('th', [_vm._v("Created")]), _vm._v(" "), _c('th', [_vm._v("Actions")])])])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -50171,7 +50198,9 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('tr', [_c('td', [_vm._t("thumbnail")], 2), _vm._v(" "), _c('td', [_vm._t("title")], 2), _vm._v(" "), _c('td', [_vm._t("price")], 2), _vm._v(" "), _c('td', [_vm._t("created")], 2), _vm._v(" "), _c('td', [_vm._t("actions")], 2)])
+  return _c('tr', [_c('td', {
+    staticClass: "drag-handle"
+  }, [_vm._v("⇵")]), _vm._v(" "), _c('td', [_vm._t("thumbnail")], 2), _vm._v(" "), _c('td', [_vm._t("title")], 2), _vm._v(" "), _c('td', [_vm._t("price")], 2), _vm._v(" "), _c('td', [_vm._t("created")], 2), _vm._v(" "), _c('td', [_vm._t("actions")], 2)])
 },staticRenderFns: []}
 module.exports.render._withStripped = true
 if (false) {
@@ -59970,22 +59999,41 @@ var app = new Vue({
     el: '#app',
     data: {
         showModal: false,
+        showSaveOrder: false,
+        isSendingOrder: false,
         menu: []
     },
     methods: {
-        // reorder ({oldIndex, newIndex}) {
-        //     const movedItem = this.items.splice(oldIndex, 1)[0]
-        //     this.items.splice(newIndex, 0, movedItem)
-        // }
+        reorder: function reorder() {
+            var data = [];
+            var context = this;
+            for (var key in this.menu) {
+                for (var i = 0; i < this.menu[key].length; i++) {
+                    data.push({ id: this.menu[key][i].id, weight: i });
+                }
+            };
+            this.isSendingOrder = true;
+            axios.post('/api/food', { data: JSON.stringify(data) }).then(function (response) {
+                context.showSaveOrder = false;
+                context.isSendingOrder = false;
+            }).catch(function (error) {
+                return console.log(error);
+            });
+        }
     },
 
     mounted: function mounted() {
-        var children = this.$children;
+        var context = this;
         axios.get('/api/food').then(function (response) {
-            this.menu = response.data;
-            for (var i = 0; i < children.length; i++) {
-                children[i].updateMenu(this.menu);
-            }
+            context.menu = response.data;
+            Event.$emit('menuFetched', context.menu);
+        });
+    },
+    created: function created() {
+        var context = this;
+        Event.$on('FoodOrderChanged', function (data) {
+            context.menu[data.category] = data.menu;
+            context.showSaveOrder = true;
         });
     }
 });
@@ -60026,6 +60074,11 @@ window.axios = __webpack_require__("./node_modules/axios/index.js");
 
 window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+// Vue events.
+window.Event = new Vue();
+
+window.bootbox = __webpack_require__("./node_modules/bootbox/bootbox.js");
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
@@ -60117,26 +60170,26 @@ module.exports = Component.exports
 /***/ "./resources/assets/js/src/confirm.js":
 /***/ (function(module, exports, __webpack_require__) {
 
-(function ($) {
+var bootbox = __webpack_require__("./node_modules/bootbox/bootbox.js");
 
+$(document).ready(function () {
+  applyConfirmDialog();
+});
+
+function applyConfirmDialog() {
   if ($('a[data-confirm]').length) {
-
-    var bootbox = __webpack_require__("./node_modules/bootbox/bootbox.js");
-
-    $(document).ready(function () {
-      $('a[data-confirm]').click(function (event) {
-        event.preventDefault();
-        var link = $(this).attr('href');
-        var message = $(this).attr('data-confirm');
-        bootbox.confirm(message, function (result) {
-          if (result) {
-            window.location = link;
-          }
-        });
+    $('a[data-confirm]').click(function (event) {
+      event.preventDefault();
+      var link = $(this).attr('href');
+      var message = $(this).attr('data-confirm');
+      bootbox.confirm(message, function (result) {
+        if (result) {
+          window.location = link;
+        }
       });
     });
   }
-})(jQuery);
+}
 
 /***/ }),
 

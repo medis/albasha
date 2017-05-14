@@ -1,5 +1,6 @@
 <template>
   <tr>
+    <td class="drag-handle">&#8693;</td>
     <td><slot name="thumbnail"></slot></td>
     <td><slot name="title"></slot></td>
     <td><slot name="price"></slot></td>

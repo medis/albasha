@@ -13,7 +13,7 @@ trait FileTrait {
     if (empty($file)) {
       return ['', ''];
     }
-    
+
     $random_name = str_random(8);
     $public_path = "storage/$path/$random_name.jpg";
     $public_thumbnail_path = "storage/$path/$random_name-thumbs.jpg";
@@ -36,9 +36,11 @@ trait FileTrait {
    * Delete file.
    */
   public function deleteFile($link) {
-    $link = public_path($link);
-    if (file_exists($link)) {
-      unlink($link);
+    if (!empty($link)) {
+      $link = public_path($link);
+      if (file_exists($link)) {
+        unlink($link);
+      }
     }
   }
 

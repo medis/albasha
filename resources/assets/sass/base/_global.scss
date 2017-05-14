@@ -18,3 +18,11 @@ body {
   border-radius: 50%;
   background: #a1a1a1;
 }
+
+.table > tbody > tr > td.drag-handle {
+  vertical-align: middle;
+  font-size: 26px;
+  &:hover {
+    cursor: grab;
+  }
+}

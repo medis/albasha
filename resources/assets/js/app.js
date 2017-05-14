@@ -41,22 +41,42 @@ const app = new Vue({
     el: '#app',
     data: {
         showModal: false,
+        showSaveOrder: false,
+        isSendingOrder: false,
         menu: []
     },
     methods: {
-        // reorder ({oldIndex, newIndex}) {
-        //     const movedItem = this.items.splice(oldIndex, 1)[0]
-        //     this.items.splice(newIndex, 0, movedItem)
-        // }
+        reorder: function() {
+            var data = [];
+            var context = this;
+            for (var key in this.menu) {
+                for (var i=0; i<this.menu[key].length; i++) {
+                    data.push({id: this.menu[key][i].id, weight: i});
+                }
+            };
+            this.isSendingOrder = true;
+            axios.post('/api/food', {data: JSON.stringify(data)})
+                .then(function(response) {
+                    context.showSaveOrder = false;
+                    context.isSendingOrder = false;
+                })
+                .catch(error => console.log(error));
+        }
     },
 
     mounted() {
-        var children = this.$children;
+        var context = this;
         axios.get('/api/food').then(function(response) {
-            this.menu = response.data;
-            for (var i=0; i<children.length; i++) {
-                children[i].updateMenu(this.menu);
-            }
+            context.menu = response.data;
+            Event.$emit('menuFetched', context.menu);
+        });
+    },
+
+    created() {
+        var context = this;
+        Event.$on('FoodOrderChanged', function(data) {
+            context.menu[data.category] = data.menu;
+            context.showSaveOrder = true;
         });
     }
 });
