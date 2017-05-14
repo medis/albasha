@@ -17,7 +17,7 @@
     }
 
     img {
-      width: 128px;
+      max-width: 128px;
       height: auto;
     }
     .image-wrapper {
@@ -47,12 +47,12 @@
     @include nice_font;
     padding-bottom: 25px;
   }
-  img {
+  .images-wrapper img {
     width: 100%;
     height: auto;
   }
   .image-wrapper img {
-    width: 128px;
+    max-width: 128px;
     height: auto;
   }
   .images-wrapper {
