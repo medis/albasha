@@ -25,7 +25,15 @@
 
         @include('partials.header')
 
-        @include('partials.slideshow')
+        @if (isset($map))
+
+            @include('partials.map')
+
+        @else
+
+            @include('partials.slideshow')
+
+        @endif
 
         @include('partials.status')
 

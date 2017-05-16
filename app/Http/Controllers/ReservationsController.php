@@ -25,7 +25,8 @@ class ReservationsController extends Controller
      */
     public function create()
     {
-        return view('reservations.create');
+        $map = true;
+        return view('reservations.create', compact('map'));
     }
 
     /**
