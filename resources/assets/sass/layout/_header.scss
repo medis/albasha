@@ -1,6 +1,9 @@
 .navbar-brand {
   height: auto;
   img {
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    transition: all 0.25s ease;
     width: 100%;
     max-width: 400px;
     height: auto;
@@ -23,7 +26,6 @@
 .navbar-default {
   background-color: transparent;
   border: none;
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -42,6 +44,13 @@
   opacity: .5;
   z-index: 5;
 }
+
+.navbar-default .navbar-nav > li > a {
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+
 @media all and (min-width: 768px) {
   .navbar-default .navbar-nav > li > a {
     line-height: 67px;
@@ -65,5 +74,16 @@
 @media all and (min-width: 768px) {
   .navbar-collapse.col-md-7 {
     width: 58.33333333%;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .navbar.navbar-default.top-nav-collapse {
+    .navbar-brand img {
+      width: 70%;
+    }
+    .navbar-nav > li > a {
+      line-height: 50px;
+    }
   }
 }

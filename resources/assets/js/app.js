@@ -16,6 +16,9 @@ require('./src/datepicker');
 // Confirmation modal.
 require('./src/confirm');
 
+// Menu collapse.
+require('./src/collapse');
+
 //require('vue-sortable');
 
 /**

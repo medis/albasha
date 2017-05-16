@@ -59974,6 +59974,9 @@ __webpack_require__("./resources/assets/js/src/datepicker.js");
 // Confirmation modal.
 __webpack_require__("./resources/assets/js/src/confirm.js");
 
+// Menu collapse.
+__webpack_require__("./resources/assets/js/src/collapse.js");
+
 //require('vue-sortable');
 
 /**
@@ -60164,6 +60167,19 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
+
+/***/ }),
+
+/***/ "./resources/assets/js/src/collapse.js":
+/***/ (function(module, exports) {
+
+$(window).scroll(function () {
+  if ($('.navbar').offset().top > 96) {
+    $('.navbar-fixed-top').addClass('top-nav-collapse');
+  } else {
+    $('.navbar-fixed-top').removeClass('top-nav-collapse');
+  }
+});
 
 /***/ }),
 
