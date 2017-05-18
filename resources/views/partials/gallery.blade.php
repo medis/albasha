@@ -14,8 +14,7 @@
 
       <div class="images-wrapper">
         @foreach($gallery as $image)
-          <div class="col-xs-5 col-md-3 image" style="background-image: url('{{ $image->image }}'); ">
-          </div>
+          <a href="#" @click.stop.prevent="openModal('{{ $image->image }}')" class="col-xs-5 col-md-3 image" style="background-image: url('{{ $image->image }}'); "></a>
         @endforeach
       </div>
     </div>

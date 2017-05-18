@@ -23,6 +23,8 @@
 <body>
     <div id="app">
 
+        <modal v-if="showModal"></modal>
+
         @include('partials.header')
 
         @if (isset($map))

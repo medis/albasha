@@ -28,7 +28,7 @@ require('./src/collapse');
  */
 
 //Vue.component('example', require('./components/Example.vue'));
-//Vue.component('modal', require('./components/Modal.vue'));
+Vue.component('modal', require('./components/Modal.vue'));
 Vue.component('food', require('./components/Food.vue'));
 Vue.component('food-list', require('./components/FoodList.vue'));
 
@@ -46,6 +46,7 @@ const app = new Vue({
         showModal: false,
         showSaveOrder: false,
         isSendingOrder: false,
+        modalImage: '',
         menu: []
     },
     methods: {
@@ -64,7 +65,12 @@ const app = new Vue({
                     context.isSendingOrder = false;
                 })
                 .catch(error => console.log(error));
-        }
+        },
+
+        openModal: function(image) {
+            this.modalImage = image;
+            this.showModal = true;
+        },
     },
 
     mounted() {
@@ -81,5 +87,7 @@ const app = new Vue({
             context.menu[data.category] = data.menu;
             context.showSaveOrder = true;
         });
+
+        Event.$on('closeModal', () => context.showModal = false );
     }
 });
