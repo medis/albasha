@@ -14,12 +14,17 @@
 
       <div class="images-wrapper">
         @foreach($gallery as $image)
-          <a href="#" @click.stop.prevent="openModal('{{ $image->image }}')" class="col-xs-5 col-md-3 image" style="background-image: url('{{ $image->image }}'); "></a>
+          <div class="col-xs-5 col-md-3">
+            <a href="#" @click.stop.prevent="openModal('{{ $image->image }}')" class="image" style="background-image: url('{{ $image->thumbnail }}'); "></a>
+          </div>
         @endforeach
       </div>
     </div>
-  </div>
 
-  {{ $gallery->links() }}
+    <div class="pagination-wrapper">
+      {{ $gallery->links() }}
+    </div>
+
+  </div>
 
 @endif

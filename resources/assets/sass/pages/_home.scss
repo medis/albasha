@@ -40,16 +40,23 @@
   background: url(../images/gallery_bg.jpg) no-repeat 0 0;
   background-size: cover;
   > .container {
-    padding: 40px 0;
+    padding: 40px 0 0 0;
+  }
+  .pagination-wrapper {
+    text-align: center;
+
   }
   h2 {
     text-align: center;
     @include nice_font;
     padding-bottom: 25px;
   }
-  .images-wrapper img {
-    width: 100%;
-    height: auto;
+  .images-wrapper {
+    > div { margin-bottom: 25px; }
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
   .image-wrapper img {
     max-width: 128px;
@@ -60,10 +67,11 @@
   }
   .image {
     background-size: cover;
+    display: block;
     &:before {
       content: "";
       display: block;
-      padding-top: 100%;
+      padding-top: 70%;
     }
   }
   .gallery-image {
