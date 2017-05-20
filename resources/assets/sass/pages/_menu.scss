@@ -1,5 +1,18 @@
 .menu-page {
   padding-bottom: 100px;
+  position: relative;
+  .menu-bg-1 {
+    position: absolute;
+    top: 0;
+    right: -265px;
+  }
+
+  .menu-bg-2 {
+    position: absolute;
+    top: 1650px;
+    left: -250px;
+  }
+
   h1 {
     @include nice_font();
     padding-bottom: 20px;

@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container menu-page">
+    {{ Html::image('images/menu_bg1.png', '', ['class' => 'menu-bg-1 visible-md-block visible-lg-block']) }}
+    {{ Html::image('images/menu_bg2.png', '', ['class' => 'menu-bg-2 visible-md-block visible-lg-block']) }}
     <div class="row">
         <div class="col-md-10 col-md-push-1">
             <h1 class="text-center">Taste Something Now</h1>
