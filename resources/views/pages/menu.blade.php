@@ -30,7 +30,7 @@
 
                                         <div class="image">
                                             @if (!empty($food->thumbnail))
-                                                {{ Html::image($food->thumbnail) }}
+                                                <a href="#" @click.stop.prevent="openModal('{{ $food->image }}')">{{ Html::image($food->thumbnail) }}</a>
                                             @else
                                                 <div class="empty-image"></div>
                                             @endif
