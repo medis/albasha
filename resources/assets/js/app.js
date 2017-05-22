@@ -19,6 +19,10 @@ require('./src/confirm');
 // Menu collapse.
 require('./src/collapse');
 
+//require('vuejs-paginator');
+import VueResource from 'vue-resource'
+import VuePaginator from 'vuejs-paginator';
+Vue.use(VueResource);
 //require('vue-sortable');
 
 /**
@@ -42,12 +46,27 @@ Vue.component('food-list', require('./components/FoodList.vue'));
 
 const app = new Vue({
     el: '#app',
+    components: {
+        VPaginator: VuePaginator
+    },
     data: {
         showModal: false,
         showSaveOrder: false,
         isSendingOrder: false,
         modalImage: '',
-        menu: []
+        menu: [],
+        // Instagram feed.
+        instagram: [],
+        instagram_remote_url: '/api/instagram',//'https://www.instagram.com/asmakalbasha/media/',
+        instagram_options: {
+            remote_data: 'items',
+            remote_current_page: 'current_page',
+            remote_last_page: 'last_page',
+            remote_next_page_url: 'next_page_url',
+            remote_prev_page_url: 'prev_page_url',
+            next_button_text: 'Go Next',
+            previous_button_text: 'Go Back'
+        }
     },
     methods: {
         reorder: function() {
@@ -71,6 +90,12 @@ const app = new Vue({
             this.modalImage = image;
             this.showModal = true;
         },
+
+        // Instagram pagination callback.
+        updateResource: function(data) {
+            console.log(data);
+            this.instagram = data;
+        }
     },
 
     mounted() {

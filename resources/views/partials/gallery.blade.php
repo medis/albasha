@@ -24,7 +24,7 @@
     <div class="pagination-wrapper">
       {{ $gallery->links() }}
     </div>
-
+<v-paginator :options="instagram_options" :resource_url="instagram_remote_url" @update="updateResource" :pages="1"></v-paginator>
   </div>
 
 @endif
