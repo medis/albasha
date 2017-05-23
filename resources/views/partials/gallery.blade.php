@@ -11,7 +11,7 @@
     </div>
 
     <div class="images-wrapper">
-      <div class="col-xs-5 col-md-3" v-for="item in instagram">
+      <div class="col-xs-6 col-md-3" v-for="item in instagram">
         <a href="#" @click.stop.prevent="openModal( item.images.standard_resolution.url )"  class="image" v-bind:style="{ backgroundImage: 'url(' + item.images.low_resolution.url + ')' }"></a>
       </div>
     </div>
