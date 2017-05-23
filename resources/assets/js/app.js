@@ -57,15 +57,15 @@ const app = new Vue({
         menu: [],
         // Instagram feed.
         instagram: [],
-        instagram_remote_url: '/api/instagram',//'https://www.instagram.com/asmakalbasha/media/',
+        instagram_remote_url: '/api/instagram',
         instagram_options: {
             remote_data: 'items',
             remote_current_page: 'current_page',
             remote_last_page: 'last_page',
             remote_next_page_url: 'next_page_url',
             remote_prev_page_url: 'prev_page_url',
-            next_button_text: 'Go Next',
-            previous_button_text: 'Go Back'
+            next_button_text: 'Next',
+            previous_button_text: 'Back'
         }
     },
     methods: {

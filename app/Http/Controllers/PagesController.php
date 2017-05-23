@@ -13,8 +13,7 @@ class PagesController extends Controller
      * Homepage callback.
      */
     public function index() {
-        $gallery = Gallery::paginate(8);
-        return view('pages.home', compact('gallery'));
+        return view('pages.home');
     }
 
     /**
