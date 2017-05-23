@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Cache;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 class InstagramController extends Controller
 {
@@ -33,7 +34,7 @@ class InstagramController extends Controller
             $data = Cache::get('instagram');
         }
         else {
-            $guzzle = new GuzzleHttp\Client();
+            $guzzle = new Client();
             $res = $guzzle->get('https://www.instagram.com/asmakalbasha/media');
             $data = json_decode((string) $res->getBody(), true)['items'];
             $minutes = Carbon::now()->addDay();
