@@ -6,7 +6,7 @@
       <div class="col-md-8 col-md-offset-2">
         <div class="form-group">
           <div class="btn-group" role="group" aria-label="...">
-            <a href="{{ route('gallery_create') }}" class="btn btn-default">Add image</a>
+            <a href="{{ route('gallery.create') }}" class="btn btn-default">Add image</a>
           </div>
         </div>
 
@@ -35,8 +35,8 @@
                           <td>{{ $image->slideshow ? '&#10003;' : '&#x2718;' }}</td>
                           <td>
                             <ul>
-                              <li><a href="{{ route('gallery_edit', $image) }}">Edit</a></li>
-                              <li><a href="{{ route('gallery_delete', $image) }}" data-confirm="Are you sure you want to delete this?">Delete</a></li>
+                              <li><a href="{{ route('gallery.edit', $image) }}">Edit</a></li>
+                              <li><a href="{{ route('gallery.destroy', $image) }}" data-confirm="Are you sure you want to delete this?">Delete</a></li>
                             </ul>
                           </td>
                         </tr>

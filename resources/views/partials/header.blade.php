@@ -24,7 +24,7 @@
                     <li><a href="{{ route('home') }}">Home</a></li>
                     <li><a href="{{ route('menu') }}">Menu</a></li>
                     <li><a href="{{ route('reservations') }}">Reservations & Contact</a></li>
-                    <li><a href="{{ route('share') }}">Share With Us</a></li>
+                    <li><a href="{{ route('share.index') }}">Share With Us</a></li>
                     @if (Auth::check())
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -43,8 +43,8 @@
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
-                                <li><a href="{{ route('share_admin') }}">Edit Shares</a></li>
-                                <li><a href="{{ route('gallery_index') }}">Edit Gallery</a></li>
+                                <li><a href="{{ route('share.admin') }}">Edit Shares</a></li>
+                                <li><a href="{{ route('gallery.index') }}">Edit Gallery</a></li>
                                 <li><a href="{{ route('food.index') }}">Edit Food</a></li>
                             </ul>
                         </li>

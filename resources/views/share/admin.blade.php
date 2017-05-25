@@ -29,9 +29,9 @@
                               <td>{{ $share->confirmed ? '&#10003;' : '&#x2718;' }}</td>
                               <td>
                                 <ul>
-                                  <li><a href="{{ route('share_show', $share) }}">View</a></li>
-                                  <li><a href="{{ route('share_edit', $share) }}">Edit</a></li>
-                                  <li><a href="{{ route('share_delete', $share) }}" data-confirm="Are you sure you want to delete this?">Delete</a></li>
+                                  <li><a href="{{ route('share.show', $share) }}">View</a></li>
+                                  <li><a href="{{ route('share.edit', $share) }}">Edit</a></li>
+                                  <li><a href="{{ route('share.destroy', $share) }}" data-confirm="Are you sure you want to delete this?" class="delete">Delete</a></li>
                                 </ul>
                               </td>
                             </tr>

@@ -36,7 +36,7 @@ class GalleryController extends Controller
             'slideshow' => $request->get('slideshow') ? true : false
         ]);
 
-        return redirect()->route('gallery_index')->with('status', 'Image created.');
+        return redirect()->route('gallery.index')->with('status', 'Image created.');
     }
 
     public function edit(Gallery $gallery) {
@@ -56,37 +56,14 @@ class GalleryController extends Controller
         $gallery->slideshow = $request->get('slideshow') ? true : false;
         $gallery->save();
 
-        return redirect()->route('gallery_index')->with('status', 'Image updated.');
+        return redirect()->route('gallery.index')->with('status', 'Image updated.');
     }
 
     public function destroy(Gallery $gallery) {
         $this->deleteFile($gallery->image);
         $this->deleteFile($gallery->thumbnail);
         $gallery->delete();
-        return redirect()->route('gallery_index')->with('status', 'Image deleted.');
+        return redirect()->route('gallery.index')->with('status', 'Image deleted.');
     }
 
-
-    // private function createFile($file) {
-    //     $random_name = str_random(8);
-    //     $public_path = 'storage/gallery/'. $random_name .'.jpg';
-    //     $public_thumbnail_path = 'storage/gallery/'. $random_name .'-thumbs.jpg';
-
-    //     if (!file_exists(public_path('storage/gallery'))) {
-    //         mkdir(public_path('storage'));
-    //         mkdir(public_path('storage/gallery'));
-    //     }
-
-    //     $image = Image::make($file->getRealPath());
-    //     $image->save(public_path($public_path));
-    //     $image->fit(300, 200)->save(public_path($public_thumbnail_path));
-    //     return [$public_path, $public_thumbnail_path];
-    // }
-
-    // private function deleteFile($link) {
-    //     $link = public_path($link);
-    //     if (file_exists($link)) {
-    //         unlink($link);
-    //     }
-    // }
 }

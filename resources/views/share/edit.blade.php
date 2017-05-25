@@ -10,7 +10,7 @@
                     
                   @include('partials.errors')
 
-                  {!! Form::model($share, ['route' => ['share_update', $share], 'method' => 'put']) !!}
+                  {!! Form::model($share, ['route' => ['share.update', $share], 'method' => 'put']) !!}
 
                       <div class="row">
 

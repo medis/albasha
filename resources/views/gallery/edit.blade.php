@@ -8,7 +8,7 @@
 
         @include('partials.errors')
 
-        {!! Form::model($gallery, ['route' => ['gallery_update', $gallery], 'files' => true, 'method' => 'put']) !!}
+        {!! Form::model($gallery, ['route' => ['gallery.update', $gallery], 'files' => true, 'method' => 'put']) !!}
 
             <div class="row">
 

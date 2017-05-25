@@ -1,6 +1,6 @@
 @include('partials.errors')
 
-{!! Form::open(['route' => 'share_store']) !!}
+{!! Form::open(['route' => 'share.store']) !!}
 
     {!! Honeypot::generate('my_name', 'my_time') !!}
 

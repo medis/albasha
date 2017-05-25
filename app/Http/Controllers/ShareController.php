@@ -96,7 +96,8 @@ class ShareController extends Controller
     public function destroy(Share $share)
     {
         $share->delete();
-        return redirect()->back()->with('status', 'Share deleted.');
+        //return redirect()->back()->with('status', 'Share deleted.');
+        request()->session()->flash('status', 'Share deleted.');
     }
 
     public function admin()

@@ -8,7 +8,7 @@
 
         @include('partials.errors')
 
-        {!! Form::open(['route' => 'gallery_store', 'files' => true]) !!}
+        {!! Form::open(['route' => 'gallery.store', 'files' => true]) !!}
 
             <div class="row">
 
