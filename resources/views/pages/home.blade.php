@@ -5,7 +5,7 @@
     <div class="home-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 text-center">
+                <div class="col-md-8 text-center" id="homepage-main-text" contenteditable="true">
                     <h1>Welcome to our Retaurant</h1>
                     <h2>WE ARE A BEST QUALITY & TRADITIONAL<br/>IRAQI FOOD, SPECIALIZED IN FISH</h2>
                     <div class="homepage-fish">
@@ -34,4 +34,8 @@
 
 @include('partials.gallery')
 
+@endsection
+
+@section('scripts')
+    <script src="/js/vendor/ckeditor/ckeditor.js"></script>
 @endsection

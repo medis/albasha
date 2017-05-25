@@ -19,6 +19,9 @@ require('./src/confirm');
 // Menu collapse.
 require('./src/collapse');
 
+// Ckeditor.
+require('./src/ckeditor');
+
 //require('vuejs-paginator');
 import VueResource from 'vue-resource'
 import VuePaginator from 'vuejs-paginator';

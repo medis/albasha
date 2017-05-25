@@ -62198,6 +62198,9 @@ __webpack_require__("./resources/assets/js/src/confirm.js");
 // Menu collapse.
 __webpack_require__("./resources/assets/js/src/collapse.js");
 
+// Ckeditor.
+__webpack_require__("./resources/assets/js/src/ckeditor.js");
+
 //require('vuejs-paginator');
 
 
@@ -62462,6 +62465,31 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
+
+/***/ }),
+
+/***/ "./resources/assets/js/src/ckeditor.js":
+/***/ (function(module, exports) {
+
+CKEDITOR.disableAutoInline = true;
+
+$(document).ready(function () {
+    $("div[contenteditable='true']").each(function (index) {
+        var content_id = $(this).attr('id');
+
+        CKEDITOR.inline(content_id, {
+            //format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
+
+            on: {
+                blur: function blur(event) {
+                    var data = event.editor.getData();
+                    console.log(data);
+                    // Do sth with your data...
+                }
+            }
+        });
+    });
+});
 
 /***/ }),
 
