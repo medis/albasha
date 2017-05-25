@@ -3,4 +3,11 @@
     @include nice_font;
     text-align: center;
   }
+  > .row {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  form {
+    margin-top: 70px;
+  }
 }

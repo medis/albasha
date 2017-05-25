@@ -28,8 +28,8 @@
     }
   }
 }
-.about-wrapper {
-  padding: 0 0 100px 0;
+.about-wrapper .container > .row {
+  padding: 0 0 150px 0;
 }
 @media all and (min-width: 1200px) {
   .about-wrapper .home-page {

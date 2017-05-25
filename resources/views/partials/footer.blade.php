@@ -13,28 +13,47 @@
       <div class="content-wrapper">
         <table class="times">
           <tr>
-            <td>Monday - Friday</td>
+            <td>Monday</td>
             <td><div class="border"></div></td>
-            <td>12:00 - 12:00</td>
+            <td>14:00 - 11:00</td>
+          </tr>
+
+          <tr>
+            <td>Tuesday</td>
+            <td><div class="border"></div></td>
+            <td>14:00 - 11:00</td>
+          </tr>
+
+          <tr>
+            <td>Wednesday</td>
+            <td><div class="border"></div></td>
+            <td>14:00 - 11:00</td>
+          </tr>
+
+          <tr>
+            <td>Thursday</td>
+            <td><div class="border"></div></td>
+            <td>14:00 - 11:00</td>
+          </tr>
+
+          <tr>
+            <td>Friday</td>
+            <td><div class="border"></div></td>
+            <td>14:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Saturday</td>
             <td><div class="border"></div></td>
-            <td>12:00 - 11:00</td>
+            <td>14:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Sunday</td>
             <td><div class="border"></div></td>
-            <td>12:00 - 12:00</td>
+            <td>14:00 - 11:00</td>
           </tr>
 
-          <tr>
-            <td>Bank Holidays</td>
-            <td><div class="border"></div></td>
-            <td>Closed</td>
-          </tr>
         </table>
       </div>
     </div>
@@ -43,10 +62,10 @@
     <div class="social-media col-lg-4">
       <h2>Social Media</h2>
       <ul>
-        <li><a href="#" class="facebook"></a></li>
-        <li><a href="#" class="instgram"></a></li>
-        <li><a href="#" class="twitter"></a></li>
-        <li><a href="#" class="trip"></a></li>
+        <li><a href="https://www.facebook.com/asmak.albasha.3" class="facebook" target="_blank"></a></li>
+        <li><a href="https://www.instagram.com/asmakalbasha/" class="instgram" target="_blank"></a></li>
+        <li><a href="https://twitter.com/asmakalbasha" class="twitter" target="_blank"></a></li>
+        <li><a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d12227135-Reviews-Asmak_albasha-London_England.html" class="trip" target="_blank"></a></li>
       </ul>
       <div class="cards">
         {{ Html::image('images/cards.png') }}
