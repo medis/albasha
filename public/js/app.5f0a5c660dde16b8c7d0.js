@@ -62471,6 +62471,12 @@ module.exports = Component.exports
 /***/ "./resources/assets/js/src/ckeditor.js":
 /***/ (function(module, exports) {
 
+axios.post('/api/auth').then(function (response) {
+    console.log('authenticated');
+}).catch(function (error) {
+    console.log('not auth');
+});
+
 CKEDITOR.disableAutoInline = true;
 
 $(document).ready(function () {
@@ -62478,13 +62484,19 @@ $(document).ready(function () {
         var content_id = $(this).attr('id');
 
         CKEDITOR.inline(content_id, {
-            //format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;address;div',
 
             on: {
                 blur: function blur(event) {
                     var data = event.editor.getData();
-                    console.log(data);
-                    // Do sth with your data...
+
+                    bootbox.confirm("Would you like to save changes?", function (result) {
+                        if (result) {
+                            var link = '/page/' + content_id;
+                            axios.post(link, { data: data }).then(function (response) {
+                                location.reload();
+                            });
+                        }
+                    });
                 }
             }
         });

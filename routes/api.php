@@ -17,3 +17,13 @@ Route::get('/food', 'Api\FoodController@index');
 Route::post('/food', 'Api\FoodController@store')->name('api_food_store_weight');
 
 Route::get('/instagram/{page?}', 'Api\InstagramController@index');
+
+Route::post('/auth', function() {
+  dd(auth()->check());
+  if (auth()->check()) {
+    abort(200);
+  }
+  else {
+    abort(403);
+  }
+});

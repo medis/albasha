@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/home', 'PagesController@index');
 Route::get('/', 'PagesController@index')->name('home');
 Route::get('/menu', 'PagesController@menu')->name('menu');
+Route::post('/page/{machine_name}', 'PagesController@update');
 
 // Reservations.
 Route::get('/reservations', 'ReservationsController@create')->name('reservations');

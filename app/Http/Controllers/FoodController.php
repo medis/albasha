@@ -126,6 +126,5 @@ class FoodController extends Controller
         $this->deleteFile($food->image);
         $this->deleteFile($food->thumbnail);
         $food->delete();
-        //return redirect()->route('food.index')->with('status', 'Food deleted.');
     }
 }
