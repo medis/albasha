@@ -5,7 +5,11 @@
     <div class="home-page">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 text-center" id="homepage_main_text" contenteditable="true">
+                @if (Auth::check())
+                    <div class="col-md-8 text-center" id="homepage_main_text" contenteditable="true">
+                @else
+                    <div class="col-md-8 text-center">
+                @endif
                     {!! $body !!}
                 </div>
             </div>

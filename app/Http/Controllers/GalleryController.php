@@ -63,7 +63,8 @@ class GalleryController extends Controller
         $this->deleteFile($gallery->image);
         $this->deleteFile($gallery->thumbnail);
         $gallery->delete();
-        return redirect()->route('gallery.index')->with('status', 'Image deleted.');
+        //return redirect()->route('gallery.index')->with('status', 'Image deleted.');
+        request()->session()->flash('status', 'Image deleted.');
     }
 
 }

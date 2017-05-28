@@ -31,3 +31,13 @@ Route::resource('gallery', 'GalleryController');
 
 // Food
 Route::resource('food', 'FoodController');
+
+Route::get('/auth', function(Request $request) {
+  //dd(auth()->check());
+  if (auth()->check()) {
+    return 'success';
+  }
+  else {
+    abort(403);
+  }
+});

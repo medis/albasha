@@ -36,7 +36,7 @@
                           <td>
                             <ul>
                               <li><a href="{{ route('gallery.edit', $image) }}">Edit</a></li>
-                              <li><a href="{{ route('gallery.destroy', $image) }}" data-confirm="Are you sure you want to delete this?">Delete</a></li>
+                              <li><a href="{{ route('gallery.destroy', $image) }}" class="delete" data-confirm="Are you sure you want to delete this?">Delete</a></li>
                             </ul>
                           </td>
                         </tr>

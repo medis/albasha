@@ -96,7 +96,6 @@ const app = new Vue({
 
         // Instagram pagination callback.
         updateResource: function(data) {
-            console.log(data);
             this.instagram = data;
         }
     },
