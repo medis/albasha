@@ -74,5 +74,7 @@
       </div>
     </div>
 
+    <div class="col-xs-12 developed">Site developed and maintained by <a href="http://audrius.io" target="_blank">audrius.io</a></div>
   </div>
+
 </footer>
