@@ -7,6 +7,8 @@
 
             <h1>Reserve a table</h1>
 
+            <p class="confirm">* Please contact us on 020 365 99 467 to confirm your reservation</p>
+
             @include('partials.errors')
 
             {!! Form::open(['route' => 'reservations_store']) !!}
