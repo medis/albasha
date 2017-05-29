@@ -24,7 +24,8 @@ class Food extends Model
             'soups' => 'SOUPS',
             'cold_starters' => 'COLD STARTERS',
             'hot_starters' => 'HOT STARTERS',
-            'main_courses' => 'MAIN COURSES'
+            'main_courses' => 'MAIN COURSES',
+            'fish_meals' => 'FISH MEALS'
         ];
     }
 
