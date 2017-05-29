@@ -66,6 +66,7 @@
         <li><a href="https://www.instagram.com/asmakalbasha/" class="instgram" target="_blank"></a></li>
         <li><a href="https://twitter.com/asmakalbasha" class="twitter" target="_blank"></a></li>
         <li><a href="https://www.tripadvisor.co.uk/Restaurant_Review-g186338-d12227135-Reviews-Asmak_albasha-London_England.html" class="trip" target="_blank"></a></li>
+        <li><a href="#" @click.stop.prevent="openModal('/images/IMG-20170527-WA0001.jpg')" class="snapchat"></a></li>
       </ul>
       <div class="cards">
         {{ Html::image('images/cards.png') }}
