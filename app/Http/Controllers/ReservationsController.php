@@ -42,12 +42,17 @@ class ReservationsController extends Controller
             'my_time'   => 'required|honeytime:5',
             'email'     => "required|email",
             'name'      => "required",
-            'phone'      => "required",
+            'phone'     => "required",
             'date'      => "required",
         ]);
 
-        $reservation = new Reservation($request->all());
-        Mail::to(config('app.MAIL_TO'))->send(new ReservationCreated($reservation));
+        $emails = explode(',', config('app.MAIL_TO'));
+        if (!empty($emails)) {
+            $reservation = new Reservation($request->all());
+            foreach ($emails as $email) {
+                Mail::to($email)->send(new ReservationCreated($reservation));
+            }
+        }
 
         return redirect()->home()->with('status', 'Reservation successfully made.');
     }
