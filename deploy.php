@@ -18,9 +18,10 @@ add('writable_dirs', ['storage', 'vendor', 'public/storage']);
 
 // Servers
 
-server('development', 'audrius.io')
+host('dev')
+    ->hostname('audrius.io')
     ->user('deployer')
-    ->identityFile('~/.ssh/id_deployex.pub', '~/.ssh/id_deployex', '')
+    ->identityFile('~/.ssh/id_deployex')
     ->set('deploy_path', $path)
     ->pty(true);
 
