@@ -1,29 +1,35 @@
 <?php
 namespace Deployer;
-require 'recipe/laravel.php';
 
-$path = '/var/www/albasha';
+require 'recipe/laravel.php';
 
 // Configuration
 
-set('ssh_type', 'native');
-set('ssh_multiplexing', true);
+$path = '/var/www/albasha';
+
 
 set('repository', 'git@github.com:medis/albasha.git');
-
-//add('shared_files', ['.env']);
+set('git_tty', true); // [Optional] Allocate tty for git on first deployment
+add('shared_files', []);
 add('shared_dirs', ['public/storage']);
-
 add('writable_dirs', ['storage', 'vendor', 'public/storage']);
+set('allow_anonymous_stats', false);
 
-// Servers
+// Hosts
 
-host('dev')
-    ->hostname('audrius.io')
+// host('project.com')
+//     ->stage('production')
+//     ->set('deploy_path', '/var/www/project.com');
+
+// host('beta.project.com')
+//     ->stage('beta')
+//     ->set('deploy_path', '/var/www/project.com');
+
+host('audrius.io')
+    ->stage('development')
     ->user('deployer')
     ->identityFile('~/.ssh/id_deployex')
-    ->set('deploy_path', $path)
-    ->pty(true);
+    ->set('deploy_path', $path);
 
 
 // Tasks
@@ -32,9 +38,9 @@ desc('Restart PHP-FPM service');
 task('php-fpm:restart', function () {
     // The user must have rights for restart service
     // /etc/sudoers: username ALL=NOPASSWD:/bin/systemctl restart php-fpm.service
-    run('sudo systemctl restart php-fpm.service');
+    run('sudo systemctl restart php7.1-fpm.service');
 });
-//after('deploy:symlink', 'php-fpm:restart');
+after('deploy:symlink', 'php-fpm:restart');
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
