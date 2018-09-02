@@ -15,43 +15,43 @@
           <tr>
             <td>Monday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Tuesday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Wednesday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Thursday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Friday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Saturday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
           <tr>
             <td>Sunday</td>
             <td><div class="border"></div></td>
-            <td>14:00 - 11:00</td>
+            <td>13:00 - 11:00</td>
           </tr>
 
         </table>
